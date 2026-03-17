@@ -44,7 +44,7 @@ nav a { text-decoration: none; color: var(--text); font-weight: 600; font-size: 
 }
 
 /* Blog Layout */
-.container { max-width: 1200px; margin: 150px auto; padding: 20px; }
+.container { max-width: 1200px; margin: 50px auto;}
 .blog-header { text-align: center; margin-bottom: 100px; }
 .blog-header h1 { font-size: 3.5rem; margin: 0; background: linear-gradient(to right, var(--primary), #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
@@ -288,7 +288,7 @@ time { font-size: 0.9rem; opacity: 0.6; }
 @media (max-width: 1024px) {
     .container {
         max-width: 90% !important;
-        margin-top: 100px;
+        margin: 30px auto;
     }
     
     .blog-masonry {

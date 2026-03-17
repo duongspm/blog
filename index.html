@@ -37,13 +37,13 @@
     <div class="container">
         <header class="main-header">
             <nav class="nav-container glass-card">
-                <div class="logo">MyBlog<span>.</span></div>
+                <div class="logo">DuonggBlog<span>.</span></div>
 
                 <!-- Menu chính -->
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-item">Trang chủ</a></li>
                     <li><a href="#tech" class="nav-item">Công nghệ</a></li>
-                    <li><a href="#about" class="nav-item">Về tôi</a></li>
+                    <li><a href="#random" class="nav-item">Random</a></li>
                 </ul>
 
                 <!-- Nút Hamburger -->
@@ -147,19 +147,33 @@
     </div>
     <!-- random -->
     <section class="container">
-        <div class="random-wrap">
+        <div class="random-wrap" id="random">
             <div class="wheel-container">
+                <div class="wheel-header">
+                    <h1 class="wheel-title">VÒNG QUAY <span class="highlight">MAY MẮN</span></h1>
+                    <p class="wheel-subtitle">Thử vận may - Nhận ngay quà tặng</p>
+                </div>
                 <div class="wheel-wrapper">
                     <div class="wheel-pointer">▼</div>
                     <canvas id="wheelCanvas" class="wheel-canvas" width="400" height="400"></canvas>
                 </div>
 
                 <div class="wheel-controls">
-                    <textarea id="wheelInput" class="wheel-input" rows="5" placeholder="Nhập tên, mỗi dòng một mục">An&#10;Bình&#10;Chi&#10;Dũng&#10;Em</textarea>
+                    <textarea id="wheelInput" class="wheel-input" rows="5" placeholder="Nhập tên, mỗi dòng một mục">Duong1&#10;Duong2&#10;Duong3&#10;Duong4&#10;Duong5</textarea>
                     <button id="wheelBtn" class="wheel-button">QUAY NGAY!</button>
                 </div>
             </div>
         </div>
+        <!-- Modal thông báo kết quả -->
+<div id="resultModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">🎊 CHÚC MỪNG 🎊</div>
+        <div id="winnerName" class="winner-name">---</div>
+        <p>Bạn đã trúng phần quà này!</p>
+        <button onclick="closeModal()" class="modal-btn">ĐÓNG</button>
+    </div>
+</div>
+
     </section>
     <!-- random -->
 
