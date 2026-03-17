@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản trị Blog | Dashboard</title>
+    <!-- Gọi file CSS chung (biến màu, darkmode) và file CSS admin riêng -->
+    <link rel="stylesheet" href="admin.css">
+    <link rel="stylesheet" href="../assets/common/common.css">
+
+</head>
+
+<body class="admin-page" data-theme="dark">
+
+    <!-- Đốm màu nền (Blobs) giữ nguyên phong cách blog -->
+    <div class="bg-blobs">
+        <div class="blob"></div>
+    </div>
+
+    <div class="admin-container">
+        <!-- 1. THANH SIDEBAR BÊN TRÁI -->
+        <aside class="admin-sidebar glass-card">
+            <div class="logo">Admin<span>.</span></div>
+            <nav>
+                <a href="#" class="active">📝 Bài viết</a>
+                <a href="index.html">🌐 Xem Blog</a>
+                <a href="#" id="btnLogout">🚪 Đăng xuất</a>
+            </nav>
+        </aside>
+
+        <!-- 2. NỘI DUNG CHÍNH BÊN PHẢI -->
+        <main class="admin-content">
+            <header class="admin-header">
+                <h1>Bảng điều khiển</h1>
+                <p>Chào mừng trở lại, hãy tạo nội dung mới hôm nay.</p>
+            </header>
+
+            <div class="admin-grid">
+                <!-- CỘT TRÁI: FORM ĐĂNG BÀI -->
+                <section class="glass-card">
+                    <h3>Đăng bài mới</h3>
+                    <div class="input-group">
+                        <label>Tiêu đề bài viết</label>
+                        <input type="text" id="postTitle" placeholder="Nhập tiêu đề...">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Danh mục</label>
+                        <select id="postCategory">
+                            <option value="Công nghệ">Công nghệ</option>
+                            <option value="Thiết kế">Thiết kế</option>
+                            <option value="Đời sống">Đời sống</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Ảnh đại diện (URL hoặc Upload)</label>
+                        <input type="text" id="postImageUrl" placeholder="Dán link ảnh hoặc chọn file bên dưới">
+                        <div id="imagePreviewContainer" class="glass-card"
+                            style="display: none; margin-bottom: 15px; overflow: hidden; border-radius: 12px;">
+                            <img id="imagePreview" src="" alt="Preview"
+                                style="width: 100%; height: 200px; object-fit: cover; display: block;">
+                        </div>
+                        <div class="file-upload-box" id="dropZone">
+                            <span>Kéo thả hoặc Click chọn ảnh</span>
+                            <input type="file" id="imageFile" accept="image/*">
+                        </div>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Nội dung bài viết</label>
+                        <textarea id="postContent" rows="8" placeholder="Nội dung chi tiết..."></textarea>
+                    </div>
+
+                    <button class="magnetic-btn w-100" id="btnPublish">
+                        <span class="btn-text">Xuất bản ngay</span>
+                    </button>
+                </section>
+
+                <!-- CỘT PHẢI: DANH SÁCH BÀI VIẾT HIỆN TẠI -->
+                <section class="glass-card">
+                    <h3>Bài viết đã đăng</h3>
+                    <div class="posts-table-wrap">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Ảnh</th>
+                                    <th>Tiêu đề</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBody">
+                                <!-- Dữ liệu từ Firebase sẽ render vào đây -->
+                                <tr>
+                                    <td colspan="3" style="text-align:center; opacity:0.5;">Đang tải dữ liệu...</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+            <section class="glass-card todo-section">
+    <div class="section-header">
+        <h3>Ghi chú công việc</h3>
+        <span id="todoCount" class="badge">0</span>
+    </div>
+    
+    <!-- Input thêm nhanh -->
+    <div class="todo-input-group">
+        <input type="text" id="todoInput" placeholder="Cần làm gì tiếp theo?">
+        <button id="btnAddTodo" class="magnetic-btn mini">
+            <span class="btn-text">+</span>
+        </button>
+    </div>
+
+    <!-- Danh sách Task -->
+    <ul id="todoList" class="todo-list">
+        <li style="text-align:center; opacity:0.5;">Đang tải ghi chú...</li>
+    </ul>
+</section>
+
+        </main>
+    </div>
+    <script type="module" src="addimage.js"></script>
+
+    <!-- KHAI BÁO MODULE FIREBASE -->
+    <script type="module" src="admin-logic.js"></script>
+
+</body>
+
+</html>

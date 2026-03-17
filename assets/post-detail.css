@@ -1,0 +1,110 @@
+/* --- DETAIL PAGE LAYOUT --- */
+.detail-container {
+    max-width: calc(100% - 40px);
+    margin: 120px auto 60px;
+    padding: 0 20px;
+}
+
+.detail-post {
+    padding: 60px !important;
+    border-radius: 40px !important;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header bài viết */
+.detail-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.detail-header h1 {
+    font-size: 3.5rem;
+    line-height: 1.2;
+    margin: 20px 0;
+    background: linear-gradient(to right, var(--primary), #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Ảnh bìa bài viết */
+.detail-hero-img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 24px;
+    margin-bottom: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+/* Nội dung bài viết */
+.detail-content {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--text);
+    opacity: 0.9;
+}
+
+.detail-content p {
+    margin-bottom: 25px;
+}
+
+/* --- FOOTER HIỆN ĐẠI --- */
+footer {
+    margin-top: 100px;
+    padding: 60px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: var(--text);
+    text-decoration: none;
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .detail-post { padding: 30px !important; }
+    .detail-header h1 { font-size: 2.2rem; }
+    .detail-hero-img { height: 250px; }
+}
+.post-detail, .post-detail * {
+    cursor: auto !important;
+}
+.interaction-section { margin-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; overflow: hidden;}
+
+.like-container { text-align: center; margin-bottom: 40px; }
+#btnLike { padding: 15px 30px; font-size: 1.5rem; border-radius: 50px; transition: 0.3s; }
+#btnLike.liked { color: #ef4444; border-color: #ef4444; box-shadow: 0 0 20px rgba(239, 68, 68, 0.4); }
+
+.comment-form { padding: 25px; margin-bottom: 30px; }
+.comment-form input, .comment-form textarea { width: 100%; margin-bottom: 15px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 10px; padding: 10px; }
+
+.comment-item { padding: 15px; margin-bottom: 15px; border-radius: 15px; background: rgba(255,255,255,0.03); border-left: 4px solid var(--primary); animation: slideIn 0.5s ease; }
+.comment-item b { color: var(--primary); display: block; margin-bottom: 5px; }
+.comment-item small { opacity: 0.5; font-size: 0.7rem; }
+.magnetic-btn{
+    cursor: pointer !important;
+}

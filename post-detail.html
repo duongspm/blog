@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đang tải bài viết... | MyBlog</title>
+    <link rel="stylesheet" href="assets/post-detail.css">
+    <link rel="stylesheet" href="assets/common/common.css">
+    <link rel="stylesheet" href="assets/top.css">
+
+</head>
+
+<body data-theme="dark" class="post-detail">
+    <!-- UI cố định -->
+    <div class="progress-container">
+        <div class="progress-bar" id="bar"></div>
+    </div>
+    <div class="bg-blobs">
+        <div class="blob"></div>
+    </div>
+
+    <!-- Header / Nav -->
+    <header class="main-header">
+        <nav class="nav-container glass-card">
+            <div class="logo" onclick="location.href='index.html'">Neon<span>.</span>Blog</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-item">Trang chủ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="detail-container">
+        <article class="glass-card detail-post reveal active" id="postContent">
+            <div class="loading-state">Đang kết nối với vũ trụ...</div>
+        </article>
+
+    </main>
+    <section class="interaction-section">
+
+        <!-- Form Bình luận -->
+        <div class="glass-card comment-form">
+            <h3>Bình luận</h3>
+            <input type="text" id="commentName" placeholder="Tên của bạn...">
+            <textarea id="commentText" rows="3" placeholder="Chia sẻ cảm nghĩ của bạn..."></textarea>
+            <button id="btnSendComment" class="magnetic-btn mini">
+                <span class="btn-text">Gửi bình luận</span>
+            </button>
+        </div>
+
+        <!-- Danh sách bình luận -->
+        <div id="commentList" class="comment-list">
+            <!-- Bình luận động đổ vào đây -->
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">Neon<span>.</span>Blog</div>
+        <div class="footer-links">
+            <a href="#">Facebook</a>
+            <a href="#">Github</a>
+            <a href="#">Contact</a>
+        </div>
+        <p style="opacity: 0.4; font-size: 0.8rem;">© 2026 Sáng tạo bởi AI Assistant</p>
+    </footer>
+    <script src="https://unpkg.com"></script>
+    <script type="module" src="post-detail.js"></script>
+    <script type="module" src="assets/top.js"></script>
+</body>
+
+</html>
