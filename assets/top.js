@@ -364,3 +364,21 @@ function createStardust(x, y) {
     }
 }
 
+document.getElementById('download-cv-btn').addEventListener('click', function() {
+    if (window.isConfettiRunning) return; // Chống spam click
+    window.isConfettiRunning = true;
+
+    // Bắn pháo hoa
+    const myConfetti = confetti({
+        particleCount: 60, // Số lượng ít để mượt mà
+        spread: 60,
+        origin: { y: 0.7 },
+        ticks: 200, // Hạt sẽ biến mất nhanh hơn (mặc định là 200-600)
+    });
+
+    // Ép buộc xóa sạch mọi hạt sau 3 giây (khi chúng đã rơi hết)
+    setTimeout(() => {
+        confetti.reset(); // Hàm này sẽ xóa toàn bộ canvas confetti
+        window.isConfettiRunning = false;
+    }, 3000); 
+});

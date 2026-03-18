@@ -886,7 +886,7 @@ time { font-size: 0.9rem; opacity: 0.6; }
     
     /* Hiệu ứng trượt nhẹ từ dưới lên khi load trang */
     animation: slideUpFade 1s ease-out;
-     filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
+    filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
 }
 
 /* Đường gạch chân cách điệu */
@@ -918,3 +918,245 @@ time { font-size: 0.9rem; opacity: 0.6; }
         transform: translateY(0);
     }
 }
+.counter {
+    font-family: 'Courier New', Courier, monospace; /* Kiểu chữ số hiện đại */
+    color: #ec4899; /* Màu hồng tím nổi bật */
+    margin-left: 10px;
+    display: inline-block;
+    min-width: 40px;
+}
+
+.plus {
+    color: #ec4899;
+    font-size: 0.8em;
+    vertical-align: top;
+}
+
+/* Hiệu ứng rung nhẹ khi con số nhảy xong */
+@keyframes bounceCount {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+.bounce {
+    animation: bounceCount 0.4s ease-out;
+}
+/* contact */
+.contact-section { padding: 30px 20px; background: #f8fafc; }
+.contact-container {
+    max-width: 100%; margin: auto;
+    display: flex; flex-wrap: wrap;
+    gap: 40px; background: white;
+    padding: 40px; border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+/* About Card */
+.about-card { flex: 1; min-width: 300px; text-align: center; border-right: 1px solid #eee; padding-right: 20px; }
+.profile-img-wrapper {
+    width: 120px; height: 120px; margin: 0 auto 20px;
+    border-radius: 50%; padding: 5px;
+    background: linear-gradient(45deg, #6366f1, #ec4899);
+}
+.profile-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 3px solid white; }
+.role { color: #6366f1; font-weight: bold; margin-bottom: 15px; }
+.bio { color: #64748b; line-height: 1.6; font-size: 0.95rem; }
+
+/* Skill Tags */
+.skill-tag {
+    display: inline-block; padding: 5px 12px; background: #f1f5f9;
+    border-radius: 15px; font-size: 0.8rem; margin: 5px; transition: 0.3s;
+}
+.skill-tag:hover { background: #6366f1; color: white; transform: translateY(-3px); }
+
+/* Contact Items */
+.contact-info { flex: 1.2; min-width: 300px; }
+.contact-item {
+    display: flex; align-items: center; padding: 20px;
+    margin-bottom: 15px; border-radius: 12px;
+    text-decoration: none; color: #334155;
+    background: #f8fafc; transition: all 0.3s ease;
+}
+.contact-item:hover {
+    background: white; transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+.contact-item .icon { font-size: 1.5rem; margin-right: 15px; }
+.contact-item strong { display: block; font-size: 1rem; color: #1e293b; }
+.contact-item span { font-size: 0.85rem; color: #64748b; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .about-card { border-right: none; padding-right: 0; padding-bottom: 30px; border-bottom: 1px solid #eee; }
+}
+
+
+/* contact */
+.cv-wrapper {
+    margin-top: 25px;
+    padding-bottom: 10px;
+}
+
+.btn-download-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #6366f1, #a855f7); /* Màu tím xanh hiện đại */
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    position: relative;
+    transition: all 0.4s ease;
+    /* Đổ bóng mặc định nhẹ */
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Hiệu ứng Phát sáng (Glow) khi di chuột */
+.btn-download-cv:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.6), 
+                0 0 40px rgba(168, 85, 247, 0.4);
+    letter-spacing: 1px;
+}
+
+/* Hiệu ứng tia sáng chạy ngang qua nút */
+.btn-download-cv::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: 0.5s;
+}
+
+.btn-download-cv:hover::before {
+    left: 100%;
+}
+
+.btn-download-cv .icon {
+    font-size: 1.2rem;
+}
+.btn-download-cv:active {
+    transform: scale(0.95); /* Cảm giác bấm nút thật hơn */
+    opacity: 0.8;
+}
+.social-channels { padding: 60px 0; text-align: center; }
+.channel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px; max-width: 1000px; margin: auto;
+}
+
+.channel-card {
+    display: flex; align-items: center; padding: 25px;
+    background: white; border-radius: 20px;
+    text-decoration: none; color: #333;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 2px solid transparent;
+}
+
+/* Hiệu ứng Hover cho YouTube */
+.yt-card:hover {
+    border-color: #ff0000;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(255, 0, 0, 0.15);
+}
+
+/* Hiệu ứng Hover cho Store */
+.shop-card:hover {
+    border-color: #2563eb;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15);
+}
+
+.channel-icon {
+    font-size: 3rem; margin-right: 20px;
+    background: #f8fafc; width: 80px; height: 80px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 15px;
+}
+
+.channel-info { text-align: left; }
+.channel-info h3 { margin: 0 0 5px; font-size: 1.3rem; }
+.channel-info p { margin: 0 0 15px; color: #64748b; font-size: 0.9rem; }
+
+/* Nút bấm giả lập bên trong Card */
+.btn-sub, .btn-buy {
+    padding: 6px 15px; border-radius: 8px;
+    font-size: 0.85rem; font-weight: bold; color: white;
+}
+.btn-sub { background: #ff0000; }
+.btn-buy { background: #2563eb; }
+.feedback-section { padding: 80px 20px; background: #fdfdfd; }
+
+.feedback-slider { padding: 40px 0 !important; max-width: 1200px; }
+
+.feedback-card {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    border: 1px solid #f0f0f0;
+    transition: transform 0.3s ease;
+    height: 100%;
+}
+
+.quote-icon {
+    font-size: 4rem;
+    color: #6366f1;
+    opacity: 0.2;
+    height: 30px;
+    line-height: 1;
+}
+
+.comment {
+    font-style: italic;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.user-info { display: flex; align-items: center; gap: 15px; }
+
+.user-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info h4 { margin: 0; color: #1e293b; }
+.user-info span { font-size: 0.85rem; color: #94a3b8; }
+
+/* Tùy chỉnh màu chấm phân trang Swiper */
+.swiper-pagination-bullet-active { background: #6366f1 !important; }
+.feedback-form-container {
+    max-width: 600px; margin: 40px auto;
+    padding: 30px; background: white;
+    border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.modern-form { display: flex; flex-direction: column; gap: 15px; }
+
+.form-group { display: flex; gap: 10px; }
+.form-group input, .modern-form textarea {
+    width: 100%; padding: 12px 15px;
+    border: 1.5px solid #eee; border-radius: 10px;
+    outline: none; transition: 0.3s;
+}
+
+.form-group input:focus, .modern-form textarea:focus {
+    border-color: #6366f1; box-shadow: 0 0 10px rgba(99, 102, 241, 0.1);
+}
+
+.btn-submit-fb {
+    background: #6366f1; color: white; border: none;
+    padding: 12px; border-radius: 10px; font-weight: 600;
+    cursor: pointer; transition: 0.3s;
+}
+
+.btn-submit-fb:hover { background: #4f46e5; transform: translateY(-2px); }

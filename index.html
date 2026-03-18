@@ -4,11 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Duongg Tech Blog</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>">
-
+    <title>Duongg DevWeb</title>
+    <link rel="icon" type="image/png" href="assets/imgs/favicon.svg" />
     <link rel="stylesheet" href="assets/top.css">
-    <script src="https://cdn.jsdelivr.net"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hiseb/confetti@2.1.0/dist/confetti.min.js"></script>
+
 </head>
 
 <body>
@@ -39,13 +41,14 @@
     <div class="container">
         <header class="main-header">
             <nav class="nav-container glass-card">
-                <div class="logo">DuonggBlog<span>.</span></div>
+                <div class="logo">DuonggDevWeb<span>.</span></div>
 
                 <!-- Menu chính -->
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-item">Trang chủ</a></li>
                     <li><a href="#project" class="nav-item">project</a></li>
                     <li><a href="#random" class="nav-item">Random</a></li>
+                    <li><a href="#contact" class="nav-item">Contact</a></li>
                 </ul>
 
                 <!-- Nút Hamburger -->
@@ -57,17 +60,190 @@
             </nav>
 
         </header>
-
-        <div class="blog-header reveal">
+    </div>
+    <div class="main">
+        <div class="blog-header reveal" id="project">
             <h1>Khám phá <span id="typewriter" class="typing-text"></span><span class="cursor-blinker">|</span></h1>
             <p>Chia sẻ kiến thức về Web Performance & UI/UX Design</p>
-            <div id="project" class="projects-section">
-                <h2 class="section-title">My Projects</h2>
-                <div id="project-list" class="project-grid">
-                    <!-- Dữ liệu sẽ tự động đổ vào đây từ Javascript -->
-                </div>
+            <div class="projects-section">
+                <h2 class="section-title">
+                    My Projects
+                    <span id="project-count" class="counter">0</span><span class="plus">+</span>
+                </h2>
+                <div id="project-list" class="project-grid"></div>
             </div>
         </div>
+    </div>
+    <!-- contact -->
+    <div class="container">
+        <section class="contact-section" id="contact">
+            <h2 class="section-title">contact</h2>
+            <div class="contact-container">
+                <!-- Bên trái: Giới thiệu Coder -->
+                <div class="about-card">
+                    <div class="profile-img-wrapper">
+                        <img src="https://i.pravatar.cc" alt="Coder Profile" class="profile-img">
+                    </div>
+                    <h2>💻DuongSPM💻</h2>
+                    <p class="role">Full-stack Developer & Creative Designer</p>
+                    <p class="bio">Đam mê xây dựng những trải nghiệm web hiện đại, tối ưu hiệu suất và mang lại giá trị
+                        thực cho người dùng. "Code không chỉ là công việc, đó là nghệ thuật."</p>
+                    <p class="role">"It works on my machine"</p>
+
+                    <div class="skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
+                    <div class="cv-wrapper">
+                        <a href="duongspm-cv.pdf" id="download-cv-btn" download class="btn-download-cv">
+                            <span class="icon">📄</span> Tải xuống CV
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Bên phải: Thông tin liên hệ -->
+                <div class="contact-info">
+                    <h3>Liên hệ nếu cần thiết</h3>
+                    <div class="contact-links">
+                        <a href="mailto:email@example.com" class="contact-item">
+                            <span class="icon">📧</span>
+                            <div class="text">
+                                <strong>Email</strong>
+                                <span>duongspm@example.com</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/duongspm" target="_blank" class="contact-item">
+                            <span class="icon">🐙</span>
+                            <div class="text">
+                                <strong>GitHub</strong>
+                                <span>://duongspm</span>
+                            </div>
+                        </a>
+                        <a href="#" class="contact-item">
+                            <span class="icon">📱</span>
+                            <div class="text">
+                                <strong>Zalo / Phone</strong>
+                                <span>+84 123 456 789</span>
+                            </div>
+                        </a>
+                        <a href="#" class="contact-item">
+                            <span class="icon">📱</span>
+                            <div class="text">
+                                <strong>Youtube</strong>
+                                <span>+84 123 456 789</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- contact -->
+    <section class="social-channels">
+        <h2 class="section-title">My Channels & Store</h2>
+        <div class="channel-grid">
+            <!-- Thẻ YouTube -->
+            <a href="https://youtube.com" target="_blank" class="channel-card yt-card">
+                <div class="channel-icon">🎬</div>
+                <div class="channel-info">
+                    <h3>YouTube Channel</h3>
+                    <p>Chia sẻ kiến thức lập trình & tips UI/UX miễn phí.</p>
+                    <span class="btn-sub">Subscribe 🔴</span>
+                </div>
+            </a>
+
+            <!-- Thẻ Bán Code -->
+            <a href="https://yourstore.com" target="_blank" class="channel-card shop-card">
+                <div class="channel-icon">💻</div>
+                <div class="channel-info">
+                    <h3>Premium Source Code</h3>
+                    <p>Mua các mẫu website hiện đại <br> Liên hệ để mua trực tiếp</p>
+                    <span class="btn-buy">Ghé thăm Store 🛒</span>
+                </div>
+            </a>
+        </div>
+    </section>
+    <section class="feedback-section">
+        <h2 class="section-title">Khách hàng nói gì?</h2>
+        
+        <div class="swiper feedback-slider">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="feedback-card">
+                        <div class="quote-icon">"</div>
+                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải nghiệm khác biệt.</p>
+                        <div class="user-info">
+                            <img src="https://i.pravatar.cc" alt="User">
+                            <div>
+                                <h4>Nguyễn Văn A</h4>
+                                <span>CEO tại Tech Startup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Thêm Slide 2, 3 tương tự... -->
+                 <div class="swiper-slide">
+                    <div class="feedback-card">
+                        <div class="quote-icon">"</div>
+                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải nghiệm khác biệt.</p>
+                        <div class="user-info">
+                            <img src="https://i.pravatar.cc" alt="User">
+                            <div>
+                                <h4>Nguyễn Văn A</h4>
+                                <span>CEO tại Tech Startup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="feedback-card">
+                        <div class="quote-icon">"</div>
+                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải nghiệm khác biệt.</p>
+                        <div class="user-info">
+                            <img src="https://i.pravatar.cc" alt="User">
+                            <div>
+                                <h4>Nguyễn Văn A</h4>
+                                <span>CEO tại Tech Startup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="feedback-card">
+                        <div class="quote-icon">"</div>
+                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải nghiệm khác biệt.</p>
+                        <div class="user-info">
+                            <img src="https://i.pravatar.cc" alt="User">
+                            <div>
+                                <h4>Nguyễn Văn A</h4>
+                                <span>CEO tại Tech Startup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Phân trang & Nút điều hướng -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="feedback-form-container">
+    <h3>Để lại cách thức liên hệ nếu bạn đang cần</h3>
+    <form id="feedbackForm" class="modern-form">
+        <div class="form-group">
+            <input type="text" id="fbName" placeholder="Họ và tên của bạn" required>
+            <input type="text" id="fbRole" placeholder="Chức vụ (VD: Web Developer)" required>
+        </div>
+        <textarea id="fbContent" placeholder="Cảm nghĩ của bạn về dịch vụ..." required></textarea>
+        <button type="submit" class="btn-submit-fb">Gửi Feedback ✨</button>
+    </form>
+</div>
+
+    </section>
+    <section class="container firebase">
+        <h2 class="section-title">Danh sách bài viết</h2>
         <!-- Bài viết 1 -->
         <article class="section reveal" id="post1">
             <div class="glass-card blog-post">
@@ -81,7 +257,8 @@
                 <div class="img-wrap">
                     <picture>
                         <source srcset="https://picsum.photos/200/300?random=2" media="(min-width: 1024px)">
-                        <img src="https://picsum.photos/200/300?random=2" alt="Tech" class="parallax-img" fetchpriority="high">
+                        <img src="https://picsum.photos/200/300?random=2" alt="Tech" class="parallax-img"
+                            fetchpriority="high">
                     </picture>
                 </div>
 
@@ -107,7 +284,8 @@
                 <div class="img-wrap">
                     <picture>
                         <source srcset="https://picsum.photos/200/300?random=2" media="(min-width: 1024px)">
-                        <img src="https://picsum.photos/200/300?random=2" alt="Design" class="parallax-img" loading="lazy">
+                        <img src="https://picsum.photos/200/300?random=2" alt="Design" class="parallax-img"
+                            loading="lazy">
                     </picture>
                 </div>
 
@@ -119,6 +297,7 @@
                 </button>
             </div>
         </article>
+        <h2 class="section-title">Danh sách blog - Kết nối Firebase</h2>
 
         <div class="blog-masonry" id="blog-masonry">
             <!-- Bài 1: Ảnh dọc (cao) -->
@@ -150,8 +329,7 @@
 
             <!-- Thêm các bài viết khác với kích thước ảnh khác nhau... -->
         </div>
-
-    </div>
+    </section>
     <!-- random -->
     <section class="container">
         <div class="random-wrap" id="random">
@@ -166,7 +344,8 @@
                 </div>
 
                 <div class="wheel-controls">
-                    <textarea id="wheelInput" class="wheel-input" rows="5" placeholder="Nhập tên, mỗi dòng một mục">Duong1&#10;Duong2&#10;Duong3&#10;Duong4&#10;Duong5</textarea>
+                    <textarea id="wheelInput" class="wheel-input" rows="5"
+                        placeholder="Nhập tên, mỗi dòng một mục">Duong1&#10;Duong2&#10;Duong3&#10;Duong4&#10;Duong5</textarea>
                     <button id="wheelBtn" class="wheel-button">QUAY NGAY!</button>
                 </div>
             </div>

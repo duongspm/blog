@@ -66,13 +66,13 @@ document.getElementById('btnPublish').addEventListener('click', async (e) => {
     try {
         // BƯỚC 1: Tải ảnh lên Storage (Phần nặng nhất)
         // Chúng ta phải có URL ảnh trước khi tạo bài viết để bài viết hiển thị hoàn hảo
-        // const storagePath = `blog_images/${Date.now()}_${file.name}`;
-        // const storageReference = sRef(storage, storagePath);
+        const storagePath = `blog_images/${Date.now()}_${file.name}`;
+        const storageReference = sRef(storage, storagePath);
         
-        // btn.innerHTML = `<span class="btn-text">📸 Đang tải ảnh lên...</span>`;
-        // const snapshot = await uploadBytes(storageReference, file);
-        // const imageURL = await getDownloadURL(snapshot.ref);
-        const imageURL = 'https://picsum.photos/200/300?random=2';
+        btn.innerHTML = `<span class="btn-text">📸 Đang tải ảnh lên...</span>`;
+        const snapshot = await uploadBytes(storageReference, file);
+        const imageURL = await getDownloadURL(snapshot.ref);
+        // const imageURL = 'https://picsum.photos/200/300?random=2';
 
 
         // BƯỚC 2: Lưu vào Firestore (Rất nhanh)
@@ -203,3 +203,47 @@ document.addEventListener("DOMContentLoaded", loadPostsAdmin);
 
 // import { collection, query, orderBy, onSnapshot } from "https://www.gstatic.com";
 
+const projectDb = firebase.database().ref('projects');
+
+document.getElementById('adminProjectForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const newProject = {
+        name: document.getElementById('pName').value,
+        tech: document.getElementById('pTech').value,
+        link: document.getElementById('pLink').value,
+        image: document.getElementById('pImage').value || `https://www.s-shot.com{document.getElementById('pLink').value}`,
+        description: document.getElementById('pDesc').value,
+        createdAt: Date.now()
+    };
+
+    // Đẩy lên Firebase
+    projectDb.push(newProject)
+        .then(() => {
+            alert("Thêm dự án thành công! 🎉");
+            this.reset();
+            confetti({ particleCount: 150, spread: 70 });
+        })
+        .catch(err => alert("Lỗi: " + err.message));
+});
+// Thay đổi hàm load dự án cũ thành hàm lắng nghe Realtime
+firebase.database().ref('projects').on('value', (snapshot) => {
+    const grid = document.getElementById('project-list');
+    grid.innerHTML = ''; // Xóa cũ
+    
+    snapshot.forEach((childSnapshot) => {
+        const p = childSnapshot.val();
+        const pId = childSnapshot.key; // ID duy nhất từ Firebase
+        
+        grid.innerHTML += `
+            <div class="project-card" onclick="openProjectDetail('${pId}')">
+                <img src="${p.image}" class="project-img">
+                <div class="project-info">
+                    <span class="tag">${p.tech}</span>
+                    <h3>${p.name}</h3>
+                    <p>${p.description.substring(0, 60)}...</p>
+                </div>
+            </div>
+        `;
+    });
+});

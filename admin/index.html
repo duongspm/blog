@@ -35,6 +35,18 @@
                 <h1>Bảng điều khiển</h1>
                 <p>Chào mừng trở lại, hãy tạo nội dung mới hôm nay.</p>
             </header>
+            <section class="admin-panel">
+                <h2>🛠 Quản lý Dự án (Admin)</h2>
+                <form id="adminProjectForm" class="modern-form">
+                    <input type="text" id="pName" placeholder="Tên dự án..." required>
+                    <input type="text" id="pTech" placeholder="Công nghệ (VD: React, Firebase...)" required>
+                    <input type="text" id="pLink" placeholder="Link website thực tế..." required>
+                    <input type="text" id="pImage" placeholder="Link ảnh thumbnail (hoặc dùng API chụp màn hình)...">
+                    <textarea id="pDesc" placeholder="Mô tả chi tiết dự án..." required></textarea>
+                    <button type="submit" class="btn-admin">Thêm Dự Án Mới 🚀</button>
+                </form>
+                <div id="admin-status"></div>
+            </section>
 
             <div class="admin-grid">
                 <!-- CỘT TRÁI: FORM ĐĂNG BÀI -->
@@ -99,26 +111,27 @@
                         </table>
                     </div>
                 </section>
+
             </div>
             <section class="glass-card todo-section">
-    <div class="section-header">
-        <h3>Ghi chú công việc</h3>
-        <span id="todoCount" class="badge">0</span>
-    </div>
-    
-    <!-- Input thêm nhanh -->
-    <div class="todo-input-group">
-        <input type="text" id="todoInput" placeholder="Cần làm gì tiếp theo?">
-        <button id="btnAddTodo" class="magnetic-btn mini">
-            <span class="btn-text">+</span>
-        </button>
-    </div>
+                <div class="section-header">
+                    <h3>Ghi chú công việc</h3>
+                    <span id="todoCount" class="badge">0</span>
+                </div>
 
-    <!-- Danh sách Task -->
-    <ul id="todoList" class="todo-list">
-        <li style="text-align:center; opacity:0.5;">Đang tải ghi chú...</li>
-    </ul>
-</section>
+                <!-- Input thêm nhanh -->
+                <div class="todo-input-group">
+                    <input type="text" id="todoInput" placeholder="Cần làm gì tiếp theo?">
+                    <button id="btnAddTodo" class="magnetic-btn mini">
+                        <span class="btn-text">+</span>
+                    </button>
+                </div>
+
+                <!-- Danh sách Task -->
+                <ul id="todoList" class="todo-list">
+                    <li style="text-align:center; opacity:0.5;">Đang tải ghi chú...</li>
+                </ul>
+            </section>
 
         </main>
     </div>
