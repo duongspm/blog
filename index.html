@@ -6,24 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duongg DevWeb</title>
     <link rel="icon" type="image/png" href="assets/imgs/favicon.svg" />
-    <link rel="stylesheet" href="assets/top.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"/>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@hiseb/confetti@2.1.0/dist/confetti.min.js"></script>
+    <link rel="stylesheet" href="assets/css/top.css">
+    <link rel="stylesheet" href="assets/common/common.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
 
 </head>
 
 <body>
 
     <!-- Các thành phần hệ thống -->
+    
+    <div class="bg-blobs">
+        <div class="blob"></div>
+    </div>
     <div class="progress-container">
         <div class="progress-bar" id="bar"></div>
     </div>
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
-    <div class="bg-blobs">
-        <div class="blob"></div>
-    </div>
 
     <!-- <nav>
         <a href="#post1">Bài viết 1</a>
@@ -39,27 +39,9 @@
     </button>
 
     <div class="container">
-        <header class="main-header">
-            <nav class="nav-container glass-card">
-                <div class="logo">DuonggDevWeb<span>.</span></div>
-
-                <!-- Menu chính -->
-                <ul class="nav-links">
-                    <li><a href="#home" class="nav-item">Trang chủ</a></li>
-                    <li><a href="#project" class="nav-item">project</a></li>
-                    <li><a href="#random" class="nav-item">Random</a></li>
-                    <li><a href="#contact" class="nav-item">Contact</a></li>
-                </ul>
-
-                <!-- Nút Hamburger -->
-                <button class="hamburger" onclick="toggleMobileMenu()">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </button>
-            </nav>
-
-        </header>
+        <!-- Header -->
+        <header class="header" data-include="./inc/header.html" data-path="./"></header>
+        <!-- End Header -->
     </div>
     <div class="main">
         <div class="blog-header reveal" id="project">
@@ -168,14 +150,15 @@
     </section>
     <section class="feedback-section">
         <h2 class="section-title">Khách hàng nói gì?</h2>
-        
+
         <div class="swiper feedback-slider">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
                     <div class="feedback-card">
                         <div class="quote-icon">"</div>
-                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải nghiệm khác biệt.</p>
+                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải
+                            nghiệm khác biệt.</p>
                         <div class="user-info">
                             <img src="https://i.pravatar.cc" alt="User">
                             <div>
@@ -186,10 +169,11 @@
                     </div>
                 </div>
                 <!-- Thêm Slide 2, 3 tương tự... -->
-                 <div class="swiper-slide">
+                <div class="swiper-slide">
                     <div class="feedback-card">
                         <div class="quote-icon">"</div>
-                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải nghiệm khác biệt.</p>
+                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải
+                            nghiệm khác biệt.</p>
                         <div class="user-info">
                             <img src="https://i.pravatar.cc" alt="User">
                             <div>
@@ -202,7 +186,8 @@
                 <div class="swiper-slide">
                     <div class="feedback-card">
                         <div class="quote-icon">"</div>
-                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải nghiệm khác biệt.</p>
+                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải
+                            nghiệm khác biệt.</p>
                         <div class="user-info">
                             <img src="https://i.pravatar.cc" alt="User">
                             <div>
@@ -215,7 +200,8 @@
                 <div class="swiper-slide">
                     <div class="feedback-card">
                         <div class="quote-icon">"</div>
-                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải nghiệm khác biệt.</p>
+                        <p class="comment">Code rất sạch, tối ưu tốt. Giao diện blog của DuongSPM thực sự mang lại trải
+                            nghiệm khác biệt.</p>
                         <div class="user-info">
                             <img src="https://i.pravatar.cc" alt="User">
                             <div>
@@ -230,20 +216,32 @@
             <div class="swiper-pagination"></div>
         </div>
         <div class="feedback-form-container">
-    <h3>Để lại cách thức liên hệ nếu bạn đang cần</h3>
-    <form id="feedbackForm" class="modern-form">
-        <div class="form-group">
-            <input type="text" id="fbName" placeholder="Họ và tên của bạn" required>
-            <input type="text" id="fbRole" placeholder="Chức vụ (VD: Web Developer)" required>
+            <h3>Để lại cách thức liên hệ nếu bạn đang cần</h3>
+            <form id="feedbackForm" class="modern-form">
+                <div class="form-group">
+                    <input type="text" id="fbName" placeholder="Họ và tên của bạn" required>
+                    <input type="text" id="fbRole" placeholder="Chức vụ (VD: Web Developer)" required>
+                </div>
+                <textarea id="fbContent" placeholder="Cảm nghĩ của bạn về dịch vụ..." required></textarea>
+                <button type="submit" class="btn-submit-fb">Gửi Feedback ✨</button>
+            </form>
         </div>
-        <textarea id="fbContent" placeholder="Cảm nghĩ của bạn về dịch vụ..." required></textarea>
-        <button type="submit" class="btn-submit-fb">Gửi Feedback ✨</button>
-    </form>
-</div>
 
     </section>
     <section class="container firebase">
-        <h2 class="section-title">Danh sách bài viết</h2>
+        <div class="list-header">
+            <h2 class="section-title">Danh sách bài viết</h2>
+            <div class="search-row">
+                <input id="searchInput" class="search-input" type="text" placeholder="Tìm bài viết theo tiêu đề...">
+                <select id="categoryFilter" class="search-input">
+                    <option value="all">Tất cả chuyên mục</option>
+                    <option value="Công nghệ">Công nghệ</option>
+                    <option value="Thiết kế">Thiết kế</option>
+                    <option value="Đời sống">Đời sống</option>
+                </select>
+            </div>
+        </div>
+        <h3 class="section-subtitle">Bài viết mới nhất</h3>
         <!-- Bài viết 1 -->
         <article class="section reveal" id="post1">
             <div class="glass-card blog-post">
@@ -362,12 +360,17 @@
     </section>
     <!-- random -->
 
-    <button id="btnTop" class="back-top" onclick="toTop()">↑</button>
+    <!-- Footer -->
+	    <footer class="footer" data-include="./inc/footer.html" data-path="./"></footer>
+    <!-- End Footer -->
 
-    <script src="assets/top.js"></script>
-    <script src="assets/js/project.js"></script>
-    <script src="assets/js/random.js"></script>
-    <script type="module" src="model/load.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@hiseb/confetti@2.1.0/dist/confetti.min.js"></script>
+    
+    <script src="assets/js/inc.js"></script>
+    <script src="assets/common/common.js"></script>
+    <script src="assets/js/top.js"></script>
+    <script type="module" src="assets/js/mvc/index.js"></script>
 </body>
 
 </html>

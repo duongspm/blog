@@ -39,13 +39,36 @@
                 <h2>🛠 Quản lý Dự án (Admin)</h2>
                 <form id="adminProjectForm" class="modern-form">
                     <input type="text" id="pName" placeholder="Tên dự án..." required>
-                    <input type="text" id="pTech" placeholder="Công nghệ (VD: React, Firebase...)" required>
                     <input type="text" id="pLink" placeholder="Link website thực tế..." required>
-                    <input type="text" id="pImage" placeholder="Link ảnh thumbnail (hoặc dùng API chụp màn hình)...">
+                    <input type="text" id="pImage" placeholder="Link ảnh thumbnail (hoặc dùng API chụp màn hình)..."
+                        required>
+                    <input type="text" id="pTech" placeholder="Tag/Công nghệ (vd: React, Firebase...)" required>
                     <textarea id="pDesc" placeholder="Mô tả chi tiết dự án..." required></textarea>
-                    <button type="submit" class="btn-admin">Thêm Dự Án Mới 🚀</button>
+                    <button type="submit" class="btn-admin">Lưu dự án</button>
+                    <button type="button" id="btnCancelEdit" class="btn-admin"
+                        style="margin-left:.5rem; background:#6b7280;">Hủy</button>
                 </form>
                 <div id="admin-status"></div>
+            </section>
+            <section class="glass-card" style="margin-top:1rem;">
+                <h3>Danh sách dự án</h3>
+                <div class="posts-table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Tên</th>
+                                <th>Link</th>
+                                <th>Tag</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projectTableBody">
+                            <tr>
+                                <td colspan="4" style="text-align:center; opacity:.5;">Đang tải...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
             <div class="admin-grid">
@@ -135,11 +158,7 @@
 
         </main>
     </div>
-    <script type="module" src="addimage.js"></script>
-
-    <!-- KHAI BÁO MODULE FIREBASE -->
-    <script type="module" src="admin-logic.js"></script>
-
+    <script type="module" src="../assets/js/mvc/admin.js"></script>
 </body>
 
 </html>

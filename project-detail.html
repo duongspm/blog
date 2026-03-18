@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi tiết dự án</title>
+    <link rel="stylesheet" href="assets/css/project-detail.css" />
+    <link rel="stylesheet" href="assets/common/common.css" />
+    <link rel="stylesheet" href="assets/css/top.css" />
+
+</head>
+
+<body id="project-detail">
+    <div class="theme-toggle-wrap">
+        <button class="theme-toggle-mini glass-card" onclick="toggleTheme()" aria-label="Toggle Theme">
+            <div class="toggle-track">
+                <div class="toggle-star"></div>
+                <div class="toggle-moon"></div>
+            </div>
+        </button>
+    </div>
+    <div class="container">
+        <header class="header" data-include="./inc/header.html" data-path="./"></header>
+
+        <div class="card" id="projectCard">
+            <div class="loading">Đang tải dữ liệu dự án...</div>
+        </div>
+        <div class="card comments">
+            <h3>Bình luận về dự án📝</h3>
+            <input type="text" id="commentName" class="input" placeholder="Tên của bạn..." />
+            <textarea id="commentText" class="input" rows="4" placeholder="Cảm nghĩ của bạn về dự án này..."></textarea>
+            <button id="btnSendComment" class="btn">Gửi bình luận✨</button>
+            <div id="commentList"></div>
+        </div>
+    </div>
+    <footer class="footer" data-include="./inc/footer.html" data-path="./"></footer>
+    <script src="assets/js/inc.js"></script>
+    <!-- <script src="assets/js/top.js"></script> -->
+    <script type="module" src="assets/js/mvc/projectDetail.js"></script>
+</body>
+
+</html>

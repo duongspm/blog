@@ -87,12 +87,48 @@ time { font-size: 0.9rem; opacity: 0.6; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
 .back-top {
-    position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
-    border-radius: 50%; background: var(--primary); color: white; border: none;
-    opacity: 0; visibility: hidden; transition: 0.4s; z-index: 1000;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.back-top.show { opacity: 1; visibility: visible; }
+.back-top.show { opacity: 1; visibility: visible;transform: scale(1); }
+/* Hiệu ứng Hover */
+.back-to:hover {
+    transform: scale(1.1) translateY(-5px);
+    box-shadow: 0 15px 30px rgba(99, 102, 241, 0.6);
+}
 
+.back-to:active {
+    transform: scale(0.9);
+}
+
+/* Hiệu ứng tên lửa bay */
+.back-to.launching .rocket-icon {
+    animation: rocketLaunch 0.5s ease-in-out;
+}
+
+@keyframes rocketLaunch {
+    0% { transform: translateY(0); opacity: 1; }
+    50% { transform: translateY(-30px); opacity: 0; }
+    51% { transform: translateY(30px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
 @keyframes move { from { transform: translate(-5%, -5%); } to { transform: translate(15%, 15%); } }
 .main-header {
     position: fixed;
@@ -397,4 +433,133 @@ time { font-size: 0.9rem; opacity: 0.6; }
 @keyframes rippleEffect {
     0% { width: 0; height: 0; opacity: 0.5; }
     100% { width: 400px; height: 400px; opacity: 0; }
+}
+
+
+/* footer */
+
+.modern-footer {
+    background: #0f172a; /* Màu xanh đen sâu thẳm */
+    color: #f8fafc;
+    padding: 80px 20px 20px;
+    position: relative;
+    /* overflow: hidden; */
+    margin-top: 120px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1.2fr;
+    gap: 50px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Cột Thương hiệu & Glow */
+.footer-logo { font-size: 1.8rem; margin-bottom: 20px; color: #fff; }
+.footer-logo span { color: #6366f1; }
+.brand-info p { color: #94a3b8; line-height: 1.7; max-width: 350px; }
+
+.footer-glow {
+    position: absolute;
+    top: -50px; left: -50px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+/* Danh sách liên kết */
+.footer-column h3 {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+    color: #fff;
+    position: relative;
+}
+.footer-column h3::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -8px;
+    width: 40px; height: 3px;
+    background: #6366f1;
+    border-radius: 10px;
+}
+
+.footer-column ul { list-style: none; }
+.footer-column ul li { margin-bottom: 12px; }
+.footer-column ul li a {
+    color: #94a3b8;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.footer-column ul li a:hover { color: #6366f1; padding-left: 8px; }
+
+/* Social Icons */
+.social-links { display: flex; gap: 15px; margin-bottom: 20px; }
+.social-icon {
+    width: 45px; height: 45px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.social-icon:hover {
+    background: #6366f1;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .footer-content { grid-template-columns: 1fr; gap: 40px; text-align: center; }
+    .brand-info p { margin: 0 auto; }
+    .footer-column h3::after { left: 50%; transform: translateX(-50%); }
+    .social-links { justify-content: center; }
+}
+.modern-footer {
+    background: #0f172a;
+    position: relative;
+    padding-top: 0; /* Quan trọng: Để sóng hiện lên trên cùng */
+}
+
+.waves-container {
+    position: absolute;
+    width: 100%;
+    height: 100px; /* Độ cao vùng chứa sóng */
+    margin-top: -100px; /* Kéo sóng lên trên để đè vào phần nội dung trắng bên trên */
+    z-index: 10;
+    left: 0;
+}
+
+.waves-svg {
+    width: 100%;
+    height: 100px;
+    min-height: 100px;
+}
+
+/* Chuyển động Parallax */
+.parallax-waves > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+}
+.parallax-waves > use:nth-child(1) { animation-delay: -2s; animation-duration: 7s; }
+.parallax-waves > use:nth-child(2) { animation-delay: -3s; animation-duration: 10s; }
+.parallax-waves > use:nth-child(3) { animation-delay: -4s; animation-duration: 13s; }
+.parallax-waves > use:nth-child(4) { animation-delay: -5s; animation-duration: 20s; }
+
+@keyframes move-forever {
+    0% { transform: translate3d(-90px, 0, 0); }
+    100% { transform: translate3d(85px, 0, 0); }
 }

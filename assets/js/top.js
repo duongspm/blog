@@ -1,3 +1,37 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const includeElements = document.querySelectorAll("[data-include]");
+    const promises = [];
+
+    includeElements.forEach(function(el) {
+        const file = el.getAttribute("data-include");
+        const rootPath = el.getAttribute("data-path") || "";
+
+        if (file) {
+            const promise = fetch(file)
+                .then(response => {
+                    if (!response.ok) throw new Error(`Failed to load ${file}`);
+                    return response.text();
+                })
+                .then(data => {
+                    const processedData = data.replace(/\{\$root\}/g, rootPath);
+                    el.innerHTML = processedData;
+                })
+                .catch(err => {
+                    console.error(err);
+                    el.innerHTML = `<p style="color: red;">Could not load ${file}</p>`;
+                });
+            promises.push(promise);
+        }
+    });
+
+    if (promises.length > 0) {
+        Promise.all(promises).then(() => {
+            initializeComponents();
+        });
+    } else {
+        initializeComponents();
+    }
+});
 // 1. Định nghĩa nội dung hàm (Khai báo trước khi gọi)
 function initCustomCursor() {
     const dot = document.querySelector(".cursor-dot");

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+/* Chi tiết dự án */
+.detail-banner { width: 100%; border-radius: 20px; box-shadow: var(--shadow); margin-bottom: 25px; }
+.detail-title-wrapper h1 { font-size: 2rem; margin-bottom: 10px; color: var(--text-main); }
+.tag-tech { background: #e0e7ff; color: #4338ca; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: bold; }
+
+.description { font-size: 1.1rem; line-height: 1.8; color: #4b5563; margin: 25px 0; }
+.btn-primary-glow {
+    display: inline-block; padding: 12px 30px; background: linear-gradient(45deg, #6366f1, #a855f7);
+    color: white; text-decoration: none; border-radius: 12px; font-weight: bold;
+    box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3); transition: 0.3s;
+}
+.btn-primary-glow:hover { transform: scale(1.05); box-shadow: 0 15px 30px rgba(99, 102, 241, 0.5); }
+
+/* Bình luận */
+.comment-item { display: flex; gap: 15px; margin-bottom: 20px; animation: slideIn 0.3s ease; }
+.cmt-avatar { width: 40px; height: 40px; background: #6366f1; color: white; border-radius: 50%; 
+              display: flex; align-items: center; justify-content: center; font-weight: bold; }
+.cmt-body { background: #f3f4f6; padding: 12px 18px; border-radius: 15px; flex: 1; }
+.cmt-body strong { font-size: 0.9rem; color: #1f2937; }
+.cmt-body p { margin-top: 5px; font-size: 0.95rem; color: #4b5563; }
+
+.divider { border: none; border-top: 1px solid #eee; margin: 40px 0; }
+
+    </style>
+</head>
+
+<body>
+
+        <div class="project-detail">
+            <!-- 1. Header: Ảnh & Tên -->
+            <div class="detail-header">
+                <img src="${data.image}" alt="${data.name}" class="detail-banner">
+                <div class="detail-title-wrapper">
+                    <h1>${data.name}</h1>
+                    <span class="tag-tech">${data.tech}</span>
+                </div>
+            </div>
+
+            <!-- 2. Body: Nội dung & Nút -->
+            <div class="detail-content">
+                <p class="description">${data.description}</p>
+                <div class="action-bar">
+                    <a href="${data.link}" target="_blank" class="btn-primary-glow">
+                        Truy cập Project 🚀
+                    </a>
+                </div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- 3. Footer: Bình luận -->
+            <div class="comment-section">
+                <h3>Bình luận từ cộng đồng (${comments.length})</h3>
+                
+                <!-- Danh sách bình luận -->
+                <div id="comment-list" class="comment-list">
+                    ${comments.map(c => `
+                        <div class="comment-item">
+                            <div class="cmt-avatar">${c.name.charAt(0).toUpperCase()}</div>
+                            <div class="cmt-body">
+                                <strong>${c.name}</strong>
+                                <p>${c.text}</p>
+                            </div>
+                        </div>
+                    `).join('') || '<p class="empty-cmt">Chưa có bình luận nào. Hãy là người đầu tiên!</p>'}
+                </div>
+
+                <!-- Form thêm bình luận -->
+                <form id="commentForm" class="modern-form">
+                    <input type="text" id="cmtName" placeholder="Tên của bạn..." required>
+                    <textarea id="cmtText" placeholder="Cảm nghĩ của bạn về dự án này..." required></textarea>
+                    <button type="submit" class="btn-submit">Gửi bình luận ✨</button>
+                </form>
+            </div>
+        </div>
+
+
+
+</body>
+
+</html>
