@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duongg Tech Blog</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛸</text></svg>">
+
     <link rel="stylesheet" href="assets/top.css">
     <script src="https://cdn.jsdelivr.net"></script>
 </head>
@@ -42,7 +44,7 @@
                 <!-- Menu chính -->
                 <ul class="nav-links">
                     <li><a href="#home" class="nav-item">Trang chủ</a></li>
-                    <li><a href="#tech" class="nav-item">Công nghệ</a></li>
+                    <li><a href="#project" class="nav-item">project</a></li>
                     <li><a href="#random" class="nav-item">Random</a></li>
                 </ul>
 
@@ -59,8 +61,13 @@
         <div class="blog-header reveal">
             <h1>Khám phá <span id="typewriter" class="typing-text"></span><span class="cursor-blinker">|</span></h1>
             <p>Chia sẻ kiến thức về Web Performance & UI/UX Design</p>
+            <div id="project" class="projects-section">
+                <h2 class="section-title">My Projects</h2>
+                <div id="project-list" class="project-grid">
+                    <!-- Dữ liệu sẽ tự động đổ vào đây từ Javascript -->
+                </div>
+            </div>
         </div>
-
         <!-- Bài viết 1 -->
         <article class="section reveal" id="post1">
             <div class="glass-card blog-post">
@@ -165,22 +172,23 @@
             </div>
         </div>
         <!-- Modal thông báo kết quả -->
-<div id="resultModal" class="modal">
-    <div class="modal-content">
-        <div class="modal-header">🎊 CHÚC MỪNG 🎊</div>
-        <div id="winnerName" class="winner-name">---</div>
-        <p>Bạn đã trúng phần quà này!</p>
-        <button onclick="closeModal()" class="modal-btn">ĐÓNG</button>
-    </div>
-</div>
-
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">🎊 CHÚC MỪNG 🎊</div>
+                <div id="winnerName" class="winner-name">---</div>
+                <p>Bạn đã trúng phần quà này!</p>
+                <button onclick="closeModal()" class="modal-btn">ĐÓNG</button>
+            </div>
+        </div>
     </section>
     <!-- random -->
 
     <button id="btnTop" class="back-top" onclick="toTop()">↑</button>
 
     <script src="assets/top.js"></script>
-    <script type="module" src="load/load.js"></script>
+    <script src="assets/js/project.js"></script>
+    <script src="assets/js/random.js"></script>
+    <script type="module" src="model/load.js"></script>
 </body>
 
 </html>
