@@ -47,10 +47,38 @@ body {
 .progress-bar {
     height: 100%;
     width: 0%;
-    background: var(--primary);
+    /* background: var(--primary);
+    box-shadow: 0 0 10px var(--primary); */
+}
+
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #3b82f6,n  #8b5cf6, #3b82f6);
+    background-size: 200% 100%;
+    animation: gradientMove 3s linear infinite;
     box-shadow: 0 0 10px var(--primary);
 }
 
+@keyframes gradientMove {
+    0% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: -100% 0%;
+    }
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #ff9a9e 0%, #fecfef 50%, #a1c4fd 100%);
+    /* Hiệu ứng bóng đổ mờ ảo, nhẹ nhàng */
+    box-shadow: 0 4px 15px rgba(255, 154, 158, 0.3);
+    border-radius: 0 10px 10px 0;
+    /* Bo góc đầu thanh tiến trình */
+    transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    animation: gradientMove 3s linear infinite;
+}
 nav {
     position: fixed;
     top: 0;
