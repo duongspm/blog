@@ -1,6 +1,31 @@
 /**
  * WEBSITE MAIN LOGIC - REFACTORED
  */
+document.addEventListener('DOMContentLoaded', () => {
+    const transitionLayer = document.querySelector('.page-transition');
+
+    // 1. Kết thúc chuyển cảnh khi trang đã sẵn sàng
+    setTimeout(() => {
+        if (transitionLayer) transitionLayer.classList.add('loaded');
+    }, 500); // Đợi 0.5s để cảm nhận hiệu ứng
+
+    // 2. Kích hoạt hiệu ứng khi click vào link chuyển trang
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Chỉ áp dụng cho các link nội bộ (không phải link # hoặc target="_blank")
+            if (href && !href.startsWith('#') && !this.target && href !== 'javascript:void(0)') {
+                e.preventDefault();
+                transitionLayer.classList.remove('loaded'); // Kéo rèm xuống lại
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 600); // Chuyển trang sau khi rèm đã kéo xong
+            }
+        });
+    });
+});
 
 // --- 1. KHỞI TẠO BIẾN TOÀN CỤC ---
 const html = document.documentElement;

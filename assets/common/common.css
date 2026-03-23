@@ -1,3 +1,4 @@
+@charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&family=Tai+Heritage+Pro:wght@400;700&display=swap');
 
 :root {
@@ -37,6 +38,40 @@ body {
 .wrapper{
     margin-top: 170px;
 }
+/* Lớp phủ chuyển trang */
+.page-transition {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #0f172a; /* Cùng tông màu với Footer/Dark mode */
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* Khi trang đã tải xong, đẩy lớp phủ lên trên */
+.page-transition.loaded {
+    transform: translateY(-100%);
+}
+
+/* Hiệu ứng loading quay tròn bên trong */
+.loader-circle {
+    width: 40px; height: 40px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top: 3px solid #6366f1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+.loader-content p {
+    color: white; font-weight: 600; letter-spacing: 2px;
+}
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
 /* UI Components */
 .progress-container {
     position: fixed;
@@ -268,38 +303,43 @@ time {
 }
 
 /* Hiệu ứng Hover */
-.back-to:hover {
+.back-top:hover {
     transform: scale(1.1) translateY(-5px);
     box-shadow: 0 15px 30px rgba(99, 102, 241, 0.6);
 }
 
-.back-to:active {
+.back-top:active {
     transform: scale(0.9);
 }
-
+.back-top .rocket-icon{
+    transform: rotate(315deg);
+}
 /* Hiệu ứng tên lửa bay */
-.back-to.launching .rocket-icon {
+.back-top:hover .rocket-icon {
+    animation: rocketLaunch 0.5s ease-in-out;
+}
+.back-top.launching .rocket-icon {
     animation: rocketLaunch 0.5s ease-in-out;
 }
 
 @keyframes rocketLaunch {
     0% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(315deg);
         opacity: 1;
     }
 
     50% {
-        transform: translateY(-30px);
+        transform: translateY(-30px) rotate(315deg);
         opacity: 0;
     }
 
     51% {
-        transform: translateY(30px);
+        transform: translateY(30px) rotate(315deg);
         opacity: 0;
     }
 
     100% {
-        transform: translateY(0);
+        transform: translateY(0) rotate(315deg);
         opacity: 1;
     }
 }
@@ -693,9 +733,11 @@ time {
 /* footer */
 
 .modern-footer {
-    background: #0f172a;
+    background-color: var(--bg);
+    color: var(--text);
+    /* background: #0f172a; */
     /* Màu xanh đen sâu thẳm */
-    color: #f8fafc;
+    /* color: #f8fafc; */
     padding: 80px 20px 20px;
     position: relative;
     /* overflow: hidden; */
@@ -916,4 +958,64 @@ time {
     to {
         transform: translate(15%, 15%);
     }
+}
+/* --- RESPONSIVE DESIGN --- */
+
+/* 1. Cho Máy tính bảng (Tablets - Dưới 1024px) */
+@media (max-width: 1024px) {
+    .container { padding: 0 30px; }
+    .section-title { font-size: 2.5rem; }
+    .project-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .modal-content { width: 90%; padding: 25px; }
+}
+
+/* 2. Cho Điện thoại di động (Mobiles - Dưới 768px) */
+@media (max-width: 768px) {
+    /* Tắt con trỏ chuột custom vì mobile dùng cảm ứng */
+    .cursor-dot, .cursor-outline { display: none; }
+    html { cursor: auto; }
+
+    .section-title { font-size: 2rem; margin-bottom: 30px; }
+    
+    /* Chuyển Grid thành 1 cột duy nhất */
+    .project-grid { grid-template-columns: 1fr; }
+    
+    /* Điều chỉnh Modal chi tiết */
+    .modal-content { 
+        margin: 20px auto; 
+        padding: 20px; 
+        border-radius: 15px;
+    }
+    
+    .detail-header h1 { font-size: 1.5rem; }
+    
+    /* Footer sắp xếp theo chiều dọc */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-column h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-links { justify-content: center; }
+
+    /* Nút Back to Top nhỏ lại một chút */
+    .back-to-top {
+        width: 45px;
+        height: 45px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* 3. Cho Điện thoại siêu nhỏ (Small Mobiles - Dưới 480px) */
+@media (max-width: 480px) {
+    .section-title { font-size: 1.8rem; }
+    .btn-glow { width: 100%; text-align: center; } /* Nút bấm full màn hình */
+    .tag-badge { font-size: 0.75rem; padding: 4px 10px; }
+    .waves-container { height: 40px; } /* Sóng thấp xuống để không chiếm chỗ */
 }

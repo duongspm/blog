@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duongg DevWeb</title>
+    <meta property="og:title" content="DuongSPM | Creative Blog">
+    <meta property="og:description" content="Khám phá kho dự án và kiến thức lập trình của tôi.">
+    <meta property="og:image" content="assets/imgs/blog.png">
+
     <link rel="icon" type="image/png" href="assets/imgs/favicon.svg" />
     <link rel="stylesheet" href="assets/css/top.css">
     <link rel="stylesheet" href="assets/common/common.css">
@@ -18,12 +22,10 @@
     </div>
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
-    <div class="container">
-        <!-- Header -->
-        <header class="header" data-include="./inc/header.html" data-path="./"></header>
-        <!-- End Header -->
-    </div>
-    <div class="main">
+    <!-- Header -->
+    <header class="header" data-include="./inc/header.html" data-path="./"></header>
+    <!-- End Header -->
+    <div class="wrapper">
         <div class="blog-header reveal" id="project">
             <h1>Khám phá <span id="typewriter" class="typing-text"></span><span class="cursor-blinker">|</span></h1>
             <p>Chia sẻ kiến thức về Web Performance & UI/UX Design</p>
@@ -341,6 +343,10 @@
     <!-- random -->
 
     <!-- Footer -->
+    <button id="btnTop" class="back-top" onclick="toTop()">
+        <span class="rocket-icon">🚀</span>
+        <div class="glow-effect"></div>
+    </button>
     <footer class="footer" data-include="./inc/footer.html" data-path="./"></footer>
     <!-- End Footer -->
 
