@@ -1,21 +1,29 @@
+<div class="bg-blobs">
+    <div class="blob"></div>
+</div>
+<div class="progress-container">
+    <div class="progress-bar" id="bar"></div>
+</div>
+
+<button class="theme-toggle-mini glass-card" onclick="toggleTheme()" aria-label="Toggle Theme">
+    <div class="toggle-track">
+        <div class="toggle-star"></div>
+        <div class="toggle-moon"></div>
+    </div>
+</button>
 <header class="main-header">
-            <nav class="nav-container glass-card">
-                <div class="logo">DuonggDevWeb<span>.</span></div>
-
-                <!-- Menu chính -->
-                <ul class="nav-links">
-                    <li><a href="index.html" class="nav-item">Trang chủ</a></li>
-                    <li><a href="{$root}#project" class="nav-item">project</a></li>
-                    <li><a href="{$root}#random" class="nav-item">Random</a></li>
-                    <li><a href="{$root}#contact" class="nav-item">Contact</a></li>
-                </ul>
-
-                <!-- Nút Hamburger -->
-                <button class="hamburger" onclick="toggleMobileMenu()">
-                    <span class="line"></span>
-                    <span class="line"></span>
-                    <span class="line"></span>
-                </button>
-            </nav>
-
-        </header>
+    <nav class="nav-container glass-card">
+        <div class="logo">DuonggDevWeb<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="{$root}index.html" class="nav-item">Trang chủ</a></li>
+            <li><a href="{$root}#project" class="nav-item">project</a></li>
+            <li><a href="{$root}#random" class="nav-item">Random</a></li>
+            <li><a href="{$root}#contact" class="nav-item">Contact</a></li>
+        </ul>
+        <button class="hamburger" onclick="toggleMobileMenu()">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+    </nav>
+</header>

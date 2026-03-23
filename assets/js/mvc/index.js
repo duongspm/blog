@@ -15,9 +15,9 @@ class IndexModel {
     this.feedbacks =
       JSON.parse(localStorage.getItem("userFeedbacks") || "null") || [
         {
-          name: "Nguy?n Vãn A",
+          name: "Nguy?n Vï¿½n A",
           role: "CEO Tech",
-          content: "Code r?t s?ch, t?i ýu t?t!",
+          content: "Code r?t s?ch, t?i ï¿½u t?t!",
           avatar: "https://i.pravatar.cc/100?img=12",
         },
       ];
@@ -96,7 +96,7 @@ class IndexView {
   renderProjects(projects) {
     if (!this.projectList) return;
     if (!projects.length) {
-      this.projectList.innerHTML = "<div style='opacity:.6'>Chýa có d? án.</div>";
+      this.projectList.innerHTML = "<div style='opacity:.6'>Chï¿½a cï¿½ d? ï¿½n.</div>";
       this.projectCount.innerText = "0";
       return;
     }
@@ -107,7 +107,7 @@ class IndexView {
             <a href="project-detail.html?id=${p.id}" class="project-card">
                 <img src="${p.image || "https://picsum.photos/300/200"}" class="project-img" alt="${p.name}" loading="lazy">
                 <div class="project-info">
-                    <span class="tag">${p.tech || "Không tag"}</span>
+                    <span class="tag">${p.tech || "Khï¿½ng tag"}</span>
                     <h3>${p.name}</h3>
                     <p>${(p.description || "").substring(0, 90)}...</p>
                 </div>
@@ -121,7 +121,7 @@ class IndexView {
   renderPosts(posts, favoriteIds) {
     if (!this.blogMasonry) return;
     if (!posts.length) {
-      this.blogMasonry.innerHTML = `<p style="grid-column:1/-1; text-align:center; opacity:.6">Chýa có bài vi?t nào.</p>`;
+      this.blogMasonry.innerHTML = `<p style="grid-column:1/-1; text-align:center; opacity:.6">Chï¿½a cï¿½ bï¿½i vi?t nï¿½o.</p>`;
       return;
     }
     this.blogMasonry.innerHTML = posts
@@ -130,13 +130,13 @@ class IndexView {
         return `
                 <article class="blog-item reveal">
                     <div class="glass-card">
-                        <div class="post-meta"><span class="category">${post.category || "Khác"}</span><time>${post.createdAt ? new Date(post.createdAt.seconds * 1000).toLocaleDateString("vi-VN") : ""}</time></div>
+                        <div class="post-meta"><span class="category">${post.category || "Khï¿½c"}</span><time>${post.createdAt ? new Date(post.createdAt.seconds * 1000).toLocaleDateString("vi-VN") : ""}</time></div>
                         <h3>${post.title}</h3>
                         <div class="img-wrap auto-height"><img src="${post.image || "https://picsum.photos/200/300?random=100"}" alt="${post.title}" class="parallax-img" loading="lazy"></div>
                         <p>${(post.content || "").substring(0, 120)}...</p>
                         <div class="post-actions" style="display:flex; gap:.4rem; margin-top:.5rem; align-items:center;">
-                            <button class="magnetic-btn btn-read" data-id="${post.id}"><span class="btn-text">Ð?c thêm ?</span></button>
-                            <button class="magnetic-btn btn-fav" data-id="${post.id}">${isFav ? "? Ð? yêu thích" : "? Yêu thích"}</button>
+                            <button class="magnetic-btn btn-read" data-id="${post.id}"><span class="btn-text">ï¿½?c thï¿½m ?</span></button>
+                            <button class="magnetic-btn btn-fav" data-id="${post.id}">${isFav ? "? ï¿½? yï¿½u thï¿½ch" : "? Yï¿½u thï¿½ch"}</button>
                         </div>
                     </div>
                 </article>
@@ -221,8 +221,8 @@ class IndexController {
     this.view.feedbackForm?.addEventListener("submit", async (e) => {
       e.preventDefault();
       const newFb = {
-        name: this.view.feedbackName.value.trim() || "Ngý?i dùng",
-        role: this.view.feedbackRole.value.trim() || "Khách hàng",
+        name: this.view.feedbackName.value.trim() || "Ngï¿½?i dï¿½ng",
+        role: this.view.feedbackRole.value.trim() || "Khï¿½ch hï¿½ng",
         content: this.view.feedbackContent.value.trim(),
         avatar: `https://i.pravatar.cc/80?u=${Date.now()}`,
       };
@@ -266,7 +266,7 @@ class IndexController {
   }
 
   setupTypewriter() {
-    const words = ["Web Performance", "UI/UX", "Full-stack", "Sáng t?o"];
+    const words = ["Web Performance", "UI/UX", "Full-stack", "Sï¿½ng t?o"];
     const target = document.getElementById("typewriter");
     let i = 0,
       j = 0,
@@ -315,7 +315,7 @@ class IndexController {
       ctx.clearRect(0, 0, size, size);
       if (!items.length) {
         ctx.fillStyle = "#888";
-        ctx.fillText("Nh?p ít nh?t 2 m?c", 20, center);
+        ctx.fillText("Nh?p ï¿½t nh?t 2 m?c", 20, center);
         return;
       }
       const slice = (2 * Math.PI) / items.length;
@@ -346,7 +346,7 @@ class IndexController {
         .split("\n")
         .map((t) => t.trim())
         .filter(Boolean);
-      if (items.length < 2) return alert("Nh?p ít nh?t 2 m?c.");
+      if (items.length < 2) return alert("Nh?p ï¿½t nh?t 2 m?c.");
       spinning = true;
       wheelBtn.disabled = true;
       const degree = 1800 + Math.random() * 360;
@@ -359,7 +359,7 @@ class IndexController {
         const slice = 360 / items.length;
         const idx = Math.floor(((360 - final + 90) % 360) / slice);
         document.getElementById("winnerName").innerText =
-          items[idx] || "Không xác ð?nh";
+          items[idx] || "Khï¿½ng xï¿½c ï¿½?nh";
         document.getElementById("resultModal").style.display = "flex";
         if (typeof confetti === "function")
           confetti({ particleCount: 80, spread: 70, origin: { y: 0.6 } });

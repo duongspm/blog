@@ -7,28 +7,14 @@
     <title>Đang tải bài viết... | Duongg Blog</title>
     <link rel="stylesheet" href="assets/css/post-detail.css">
     <link rel="stylesheet" href="assets/common/common.css">
-    <link rel="stylesheet" href="assets/top.css">
+    <link rel="stylesheet" href="assets/css/top.css">
 
 </head>
 
-<body data-theme="dark" class="post-detail">
-    <!-- UI cố định -->
-    <div class="progress-container">
-        <div class="progress-bar" id="bar"></div>
-    </div>
-    <div class="bg-blobs">
-        <div class="blob"></div>
-    </div>
-
-    <!-- Header / Nav -->
-    <header class="main-header">
-        <nav class="nav-container glass-card">
-            <div class="logo" onclick="location.href='index.html'">Neon<span>.</span>Blog</div>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-item">Trang chủ</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="post-detail">
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <header class="header" data-include="./inc/header.html" data-path="./"></header>
 
     <!-- Main Content -->
     <main class="detail-container">
@@ -65,9 +51,9 @@
         </div>
         <p style="opacity: 0.4; font-size: 0.8rem;">© 2026 By Duongg</p>
     </footer>
-    <script src="https://unpkg.com"></script>
+    <script src="assets/js/inc.js"></script>
+    <script src="assets/js/top.js"></script>
     <script type="module" src="assets/js/mvc/postDetail.js"></script>
-    <script type="module" src="assets/js/top.js"></script>
 </body>
 
 </html>

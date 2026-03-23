@@ -12,17 +12,11 @@
 </head>
 
 <body id="project-detail">
-    <div class="theme-toggle-wrap">
-        <button class="theme-toggle-mini glass-card" onclick="toggleTheme()" aria-label="Toggle Theme">
-            <div class="toggle-track">
-                <div class="toggle-star"></div>
-                <div class="toggle-moon"></div>
-            </div>
-        </button>
-    </div>
-    <div class="container">
-        <header class="header" data-include="./inc/header.html" data-path="./"></header>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    <header class="header" data-include="./inc/header.html" data-path="./"></header>
 
+    <div class="container">
         <div class="card" id="projectCard">
             <div class="loading">Đang tải dữ liệu dự án...</div>
         </div>
@@ -36,7 +30,7 @@
     </div>
     <footer class="footer" data-include="./inc/footer.html" data-path="./"></footer>
     <script src="assets/js/inc.js"></script>
-    <!-- <script src="assets/js/top.js"></script> -->
+    <script src="assets/js/top.js"></script>
     <script type="module" src="assets/js/mvc/projectDetail.js"></script>
 </body>
 
