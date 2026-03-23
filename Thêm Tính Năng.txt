@@ -1,0 +1,58 @@
+2. Tính Năng Tìm Kiếm
+Thêm thanh tìm kiếm trong header
+Lọc bài viết + dự án theo từ khóa/danh mục
+Highlight từ tìm kiếm trong kết quả
+Firebase: Dùng Firestore queries với .where()
+3. Hiển Thị Thời Gian Đọc
+Hiển thị "5 phút đọc" trên các card bài viết
+Tính toán dựa trên số từ
+Thêm vào tiêu đề chi tiết bài viết
+Điều Hướng Breadcrumb
+Chi tiết bài viết: Trang chủ > Blog > [Tiêu Đề Bài Viết]
+Chi tiết dự án: Trang chủ > Dự Án > [Tên Dự Án]
+Cải thiện UX + SEO
+8. Đăng Ký Bản Tin
+Ô nhập email trong footer
+Lưu vào Firebase collection
+Gửi tin nhắn xác nhận
+Tích hợp: EmailJS hoặc Firebase Cloud Functions
+9. Nút Chia Sẻ
+Chia sẻ bài viết/dự án trên Twitter, LinkedIn, Facebook
+Tạo meta tag OG động
+Nút sao chép link vào clipboard
+
+12. Panel Quản Độc Bình Luận
+Đã có admin cho CRUD bài viết/dự án
+Thêm giao diện phê duyệt/xóa bình luận
+Đánh dấu bình luận không phù hợp
+
+13. Trạng Thái Tải Skeleton
+Hiển thị ghost/skeleton screens khi Firebase đang tải dữ liệu
+Cải thiện trải nghiệm người dùng
+Ví dụ: Gray placeholder blocks cho các card bài viết
+
+14. Thông Báo Toast
+Thành công: Bình luận đã được đăng ✓
+Lỗi: Không thể tải dữ liệu ✗
+Thông tin: Bài viết đã được lưu ✏️
+Thư viện: Dùng CSS tùy chỉnh hoặc Toastr.js
+15. Modal Dialog
+Xác nhận trước khi xóa bình luận (admin)
+Modal đăng ký với animation
+Dialog chia sẻ với icon mạng xã hội
+
+16. Floating Action Button (FAB)
+Giữ btnTop nhưng thêm mục khác:
+Cuộn lên đầu
+Mở chat/liên hệ
+Menu (trên mobile)
+UI: Menu mở rộng khi hover/click
+
+25. Lập Lịch Chế Độ Tối
+Tự động chuyển chế độ tối dựa trên thời gian (ví dụ: 6PM-7AM)
+Thông báo: "Đã chuyển sang chế độ tối vào lúc hoàng hôn"
+
+26. Bài Viết/Dự Án Liên Quan
+Hiển thị 3-4 items liên quan ở cuối bài viết
+Dựa trên tag/danh mục chung
+Section "Bạn cũng có thể thích..."
